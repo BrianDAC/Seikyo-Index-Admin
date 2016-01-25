@@ -1,0 +1,393 @@
+<md-content layout-padding ng-cloak style="padding-bottom: 100px;">
+ 	<h3>Seikyo</h3>
+	<div layout-gt-xs="row">
+	    <md-input-container class="md-block" flex-gt-xs>
+	        <label>Year</label>
+	        <input disabled name="year" ng-model="seikyo.year">
+	    </md-input-container>
+	</div>
+	<div layout-gt-xs="row">
+	    <md-input-container class="md-block" flex-gt-xs>
+	        <label>Month</label>
+	        <input disabled name="month" ng-model="seikyo.date">
+	    </md-input-container>
+	</div>
+
+	<section class="seikyoEdit" name="advertisings" id="advertisings" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Advertisings</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addAdvertising()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="advertising in seikyo.advertising">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="advertising.name"
+      	        ng-change="updateAdvertising(advertising)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteAdvertising($index, advertising)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>
+
+	<section class="seikyoEdit" name="article" id="article" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Article</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addArticle()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="article in seikyo.article">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="article.name"
+      	        ng-change="updateArticle(article)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteArticle($index, article)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>
+
+	<section class="seikyoEdit" name="basicTerm" id="basicTerm" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Basic Terms</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addBasicTerm()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="basicTerm in seikyo.basicTerm">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="basicTerm.name"
+      	        ng-change="updateBasicTerm(basicTerm)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteBasicTerm($index, basicTerm)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>	
+
+	<section class="seikyoEdit" name="editorial" id="editorial" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Editorials</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addEditorial()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+        <div  layout="row" ng-repeat="editorial in seikyo.editorial">
+            <md-input-container flex>
+                <label>Name</label>
+                <input ng-model="editorial.name"
+                ng-change="updateEditorial(editorial)"
+                >
+            </md-input-container>
+            <md-button class="md-warn"
+                ng-click="deleteEditorial($index, editorial)">
+                Eliminar
+            </md-button>
+        </div>
+	</section>
+
+	<section class="seikyoEdit" name="experience" id="experience" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Experiences</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addExperience()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+        <div  layout="row" ng-repeat="experience in seikyo.experience">
+              <md-input-container flex>
+                <label>Name</label>
+                <input ng-model="experience.name"
+                ng-change="updateExperience(experience)"
+                >
+              </md-input-container>
+              <md-input-container flex>
+                <label>Owner</label>
+                <input ng-model="experience.owner"
+                ng-change="updateExperience(experience)"
+                >
+              </md-input-container>
+              <md-input-container flex>
+                <label>Division</label>
+                <input ng-model="experience.division.name"
+                disabled
+                >
+              </md-input-container>
+            <md-button class="md-warn"
+                ng-click="deleteExperience($index, experience)">
+                Eliminar
+            </md-button>
+        </div>
+
+
+	</section>
+
+	<section class="seikyoEdit" name="femenineDivision" id="femenineDivision" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Femenine Divisions</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addFemenineDivision()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="femenineDivision in seikyo.femenineDivision">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="femenineDivision.name"
+      	        ng-change="updateFemenineDivision(femenineDivision)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteFemenineDivision($index, femenineDivision)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>			
+
+	<section class="seikyoEdit" name="futureGroup" id="futureGroup" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Future Groups</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addFutureGroup()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="futureGroup in seikyo.futureGroup">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="futureGroup.name"
+      	        ng-change="updateFutureGroup(futureGroup)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteFutureGroup($index, futureGroup)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>	
+
+	<section class="seikyoEdit" name="masculineDivision" id="masculineDivision" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Masculine Divisions</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addMasculineDivision()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="masculineDivision in seikyo.masculineDivision">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="masculineDivision.name"
+      	        ng-change="updateMasculineDivision(masculineDivision)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteMasculineDivision($index, masculineDivision)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>
+
+	<section class="seikyoEdit" name="message" id="message" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Messages</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addMessage()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="message in seikyo.message">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="message.name"
+      	        ng-change="updateMessage(message)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteMessage($index, message)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>	
+
+	<section class="seikyoEdit" name="monthlyPhrase" id="monthlyPhrase" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Monthly Phrases</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addMonthlyPhrase()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="monthlyPhrase in seikyo.monthlyPhrase">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="monthlyPhrase.name"
+      	        ng-change="updateMonthlyPhrase(monthlyPhrase)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteMonthlyPhrase($index, monthlyPhrase)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>	
+
+	<section class="seikyoEdit" name="orientation" id="orientation" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Orientations</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addOrientation()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="orientation in seikyo.orientation">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="orientation.name"
+      	        ng-change="updateOrientation(orientation)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteOrientation($index, orientation)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>
+
+	<section class="seikyoEdit" name="review" id="review" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Reviews</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addReview()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="review in seikyo.review">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="review.name"
+      	        ng-change="updateReview(review)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteReview($index, review)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>
+
+	<section class="seikyoEdit" name="sokaAdvance" id="sokaAdvance" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Soka Advances</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addSokaAdvance()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="sokaAdvance in seikyo.sokaAdvance">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="sokaAdvance.name"
+      	        ng-change="updateSokaAdvance(sokaAdvance)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteSokaAdvance($index, sokaAdvance)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>		
+
+	<section class="seikyoEdit" name="studentGroup" id="studentGroup" class='md-whiteframe-6dp'>
+		<md-toolbar class="demo-toolbar md-primary">
+        	<div class="md-toolbar-tools">
+        	  <h3 class="">Student Groups</h3>
+        	  <span flex="" class="flex"></span>
+        	    <button class="md-icon-button md-button md-ink-ripple" type="button" ng-click="addStudentGroup()">     
+					<md-icon>
+						add
+					</md-icon>
+	            </button>
+      		</div>
+      	</md-toolbar>
+      	<div  layout="row" ng-repeat="studentGroup in seikyo.studentGroup">
+      	    <md-input-container flex>
+      	        <label>Name</label>
+      	        <input ng-model="studentGroup.name"
+      	        ng-change="updateStudentGroup(studentGroup)"
+      	        >
+      	    </md-input-container>
+      	    <md-button class="md-warn"
+      	        ng-click="deleteStudentGroup($index, studentGroup)">
+      	        Eliminar
+      	    </md-button>
+      	</div>
+	</section>	
+</md-content>

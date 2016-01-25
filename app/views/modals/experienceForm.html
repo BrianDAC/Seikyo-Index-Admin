@@ -1,0 +1,44 @@
+<div layout="column" layout-align="start center" ng-cloak>  
+    <form>
+        <md-input-container>
+            <label ng-bind="labelName"></label>
+            <input type="text"
+            ng-model="experience.name">
+        </md-input-container>
+
+        <md-input-container>
+            <label ng-bind="labelOwner"></label>
+            <input type="text"
+            ng-model="experience.owner">
+        </md-input-container>
+
+        <md-input-container>
+            <md-checkbox ng-model="isChecked1" ng-change="checked1(experience)">
+              DF
+            </md-checkbox>
+            <md-checkbox ng-model="isChecked2" ng-change="checked2(experience)">
+              DJF
+            </md-checkbox>
+            <md-checkbox ng-model="isChecked3" ng-change="checked3(experience)">
+              DM
+            </md-checkbox>
+            <md-checkbox ng-model="isChecked4" ng-change="checked4(experience)">
+              DJM
+            </md-checkbox>
+        </md-input-container>
+        <p>Nota: La division no se podra modificar luego.</p>
+        <div flex layout="row" layout-align="center end">
+            <md-button
+                ng-click="$modal.dismiss()">
+                Cancelar
+            </md-button>
+
+
+            <md-button class="md-primary md-raised"
+                ng-click="$modal.accept(experience)">
+                Ok
+            </md-button>
+
+        </div>
+    </form>
+</div>

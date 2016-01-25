@@ -1,0 +1,35 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-md')">
+    <md-content>
+        <md-list>
+            <md-list-item ng-click="navigate('user.dashboard')">
+                <p>Seikyos</p>
+            </md-list-item>
+            <md-divider></md-divider>
+        </md-list>
+    </md-content>
+</md-sidenav>
+<md-content
+    flex
+    layout-padding
+    ui-view>
+</md-content>
+<md-fab-speed-dial class="md-scale"
+    md-open="fab.open"
+    md-direction="up"
+    ng-mouseenter="fab.open = true" 
+    ng-mouseleave="fab.open = false">
+    <md-fab-trigger>
+        <md-button aria-label="menu" class="md-fab md-warn"
+            ng-click="addSeikyo()">
+            <md-tooltip md-direction="left">Agregar Seikyo</md-tooltip>
+            <md-icon>add</md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+        <md-button class="md-fab md-raised md-accent md-mini">
+            <md-icon>receipt</md-icon>
+        </md-button>
+    </md-fab-actions>
+</md-fab-speed-dial>

@@ -1,0 +1,29 @@
+<div layout flex layout-align="center center">
+    <div class="md-whiteframe-z2 md-padding" layout="row">
+        <form name="loginForm"
+            layout="column"
+            ng-submit="enter(loginForm)"
+            novalidate>
+            <md-input-container>
+                <label>Correo</label>
+                <input
+                type="text"
+                ng-model="user.username"
+                required
+                name="username">
+            </md-input-container>
+            <md-input-container>
+                <label>Contrase&ntilde;a</label>
+                <input
+                type="password"
+                class="form-control"
+                ng-model="user.password"
+                required
+                name="password">
+            </md-input-container>
+            <md-button class="md-primary md-raised" flex type="submit">
+                Iniciar sesi&oacute;n
+            </md-button>
+        </form>
+    </div>
+</div>

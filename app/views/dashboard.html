@@ -1,0 +1,145 @@
+<h1 class="md-title">Elige un Año</h1>
+<div layout="row">
+    <md-input-container>
+     <label>Año</label>
+     <md-select ng-model="seikyoYear">
+       <md-option ng-repeat="year in years" value="{{year}}" ng-click="getSeikyos(year)">
+         {{year}}
+       </md-option>
+     </md-select>
+    </md-input-container>
+</div>
+<div ng-show="seikyo">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="position: relative;">
+      <b>Seikyo</b>
+        <button class="md-icon-button md-button md-ink-ripple" 
+                ng-click="cancel()" 
+                type="button"
+                style="right: 10px"
+                aria-expanded="false">
+            <md-icon class="ng-scope ng-isolate-scope material-icons">cancel</md-icon>
+        </button>
+        </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Year</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.year}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Month</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.date}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Advertisings</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.advertising.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Articles</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.article.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Basic Terms</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.basicTerm.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Editorials</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.editorial.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Experiences</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.experience.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Future Groups</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.futureGroup.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Femenine Divisions</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.femenineDivision.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Masculine Divisions</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.masculineDivision.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Messages</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.message.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Monthly Phrases</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.monthlyPhrase.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Orientations</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.orientation.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Reviews</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.review.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Soka Advances</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.sokaAdvance.length}}</div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col-sm-4 col-md-4"><b>Student Groups</b></div>
+          <div class="col-sm-8 col-md-8">{{seikyo.studentGroup.length}}</div>
+        </div>
+      </div>
+    </div>
+</div>
+<div ng-if="seikyos.length != 0">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="seikyo in seikyos">
+                <td>{{seikyo.year}}</td>
+                <td>{{seikyo.date}}</td>
+                <td>
+                    <md-menu>
+                        <button class="md-icon-button md-button md-ink-ripple" ng-click="$mdOpenMenu($event)" type="button" aria-haspopup="true" aria-expanded="false">
+                            <md-icon class="ng-scope ng-isolate-scope material-icons">more_horiz</md-icon>
+                        </button>
+                        <md-menu-content>
+                            <md-menu-item>
+                                <md-button ng-click="editSeikyo($index)">
+                                    <md-icon>edit</md-icon>
+                                    Editar
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="showSeikyo($index)">
+                                    <md-icon>description</md-icon>
+                                    Descripcion
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
